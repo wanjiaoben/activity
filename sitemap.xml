@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://activity.nice.okinawa/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://activity.nice.okinawa/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://activity.nice.okinawa/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://activity.nice.okinawa/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://activity.nice.okinawa/en/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://activity.nice.okinawa/ko/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://activity.nice.okinawa/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://activity.nice.okinawa/"/>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://activity.nice.okinawa/zh-TW/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://activity.nice.okinawa/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://activity.nice.okinawa/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://activity.nice.okinawa/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://activity.nice.okinawa/en/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://activity.nice.okinawa/ko/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://activity.nice.okinawa/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://activity.nice.okinawa/"/>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://activity.nice.okinawa/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://activity.nice.okinawa/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://activity.nice.okinawa/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://activity.nice.okinawa/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://activity.nice.okinawa/en/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://activity.nice.okinawa/ko/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://activity.nice.okinawa/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://activity.nice.okinawa/"/>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://activity.nice.okinawa/en/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://activity.nice.okinawa/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://activity.nice.okinawa/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://activity.nice.okinawa/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://activity.nice.okinawa/en/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://activity.nice.okinawa/ko/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://activity.nice.okinawa/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://activity.nice.okinawa/"/>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://activity.nice.okinawa/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://activity.nice.okinawa/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://activity.nice.okinawa/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://activity.nice.okinawa/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://activity.nice.okinawa/en/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://activity.nice.okinawa/ko/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://activity.nice.okinawa/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://activity.nice.okinawa/"/>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://activity.nice.okinawa/th/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://activity.nice.okinawa/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://activity.nice.okinawa/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://activity.nice.okinawa/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://activity.nice.okinawa/en/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://activity.nice.okinawa/ko/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://activity.nice.okinawa/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://activity.nice.okinawa/"/>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
