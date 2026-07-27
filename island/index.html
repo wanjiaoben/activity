@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>冲绳海洋发现岛</title>
+<meta name="description" content="在冲绳的海里真实遇见它们，每发现一种就点亮一张卡。">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #fffdf7;
+    --wash: #f3fbfa;
+    --wash-strong: #e2f4f1;
+    --ink: #25333a;
+    --muted: #657981;
+    --line: #cfe3df;
+    --accent: #f08f79;
+    --accent-dark: #ba5f50;
+    --sun: #f8ca6a;
+    --card: rgba(255,255,255,.88);
+    --shadow: 0 18px 42px rgba(57, 98, 105, .14);
+    --radius: 8px;
+    --font: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+    --serif: Georgia, "Songti SC", serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { min-width: 320px; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(255, 231, 186, .55), transparent 30%),
+      linear-gradient(180deg, #f7fffd 0%, #fffdf8 48%, #f2fbf7 100%);
+    color: var(--ink);
+    font-family: var(--font);
+    line-height: 1.55;
+  }
+
+  button {
+    font: inherit;
+  }
+
+  .page {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    padding: 20px 16px 34px;
+  }
+
+  .hero {
+    padding: 14px 0 18px;
+  }
+
+  .topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .brand-mark::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 56% 42%, #fff 0 16%, transparent 17%),
+      linear-gradient(140deg, #8fd6d0, #f7c56f);
+    border: 1px solid rgba(93, 139, 139, .26);
+  }
+
+  .lang-switch {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  .lang-switch button,
+  .plain-btn {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.78);
+    color: var(--muted);
+    border-radius: 999px;
+    min-height: 36px;
+    padding: 7px 12px;
+    cursor: pointer;
+  }
+
+  .lang-switch button[aria-pressed="true"] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: white;
+  }
+
+  .hero-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 22px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: rgba(255,255,255,.72);
+    box-shadow: var(--shadow);
+    padding: clamp(18px, 4vw, 34px);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(34px, 7vw, 68px);
+    line-height: 1.04;
+    letter-spacing: 0;
+  }
+
+  .lead {
+    max-width: 680px;
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: clamp(15px, 2.3vw, 18px);
+  }
+
+  .progress-box {
+    width: min(270px, 100%);
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .progress-count {
+    color: var(--ink);
+    font-weight: 800;
+  }
+
+  .progress-track {
+    height: 12px;
+    border-radius: 999px;
+    background: #e6efed;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #7ed3cf, var(--sun), var(--accent));
+    transition: width .25s ease;
+  }
+
+  .celebration {
+    display: none;
+    margin-top: 14px;
+    border: 1px solid #f2d3a6;
+    background: #fff7df;
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    color: #805b20;
+    font-weight: 700;
+  }
+
+  .celebration.show {
+    display: block;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .card {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: 0 10px 24px rgba(58, 105, 110, .1);
+    padding: 10px;
+  }
+
+  .rarity {
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    top: 10px;
+    min-width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,.9);
+    border: 1px solid rgba(96, 134, 132, .28);
+    color: var(--accent-dark);
+    font-weight: 900;
+  }
+
+  .image-button {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius);
+    background: var(--wash);
+    cursor: pointer;
+  }
+
+  .image-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(.92);
+    opacity: .38;
+    transform: scale(1.01);
+    transition: filter .22s ease, opacity .22s ease, transform .22s ease;
+  }
+
+  .card.found .image-button img {
+    filter: none;
+    opacity: 1;
+  }
+
+  .image-button:hover img,
+  .image-button:focus-visible img {
+    transform: scale(1.035);
+  }
+
+  .silhouette {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: rgba(37, 51, 58, .58);
+    font-size: clamp(36px, 8vw, 54px);
+    font-weight: 900;
+    letter-spacing: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(119, 149, 151, .16));
+    pointer-events: none;
+  }
+
+  .card.found .silhouette {
+    opacity: 0;
+  }
+
+  .badge {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 2;
+    display: none;
+    border: 1px solid rgba(186, 95, 80, .3);
+    background: #fff9f2;
+    color: var(--accent-dark);
+    border-radius: 999px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .card.found .badge {
+    display: inline-block;
+  }
+
+  .card-title {
+    min-width: 0;
+  }
+
+  .card-title h2 {
+    margin: 0;
+    font-size: clamp(15px, 2.6vw, 20px);
+    line-height: 1.25;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .card-title p {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .discover-btn {
+    width: 100%;
+    min-height: 42px;
+    border: 1px solid rgba(126, 211, 207, .7);
+    background: var(--wash-strong);
+    color: #27545a;
+    border-radius: var(--radius);
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  .card.found .discover-btn {
+    border-color: rgba(240, 143, 121, .55);
+    background: #fff3ea;
+    color: var(--accent-dark);
+  }
+
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(31, 48, 54, .48);
+  }
+
+  .modal.open {
+    display: flex;
+  }
+
+  .dialog {
+    width: min(840px, 100%);
+    max-height: min(720px, 92vh);
+    display: grid;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1fr);
+    gap: 18px;
+    overflow: auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px;
+    box-shadow: 0 24px 70px rgba(22, 42, 48, .35);
+  }
+
+  .detail-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--wash);
+  }
+
+  .detail-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+  }
+
+  .detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+    padding: 4px 2px 2px;
+  }
+
+  .dialog-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .dialog h2 {
+    margin: 0;
+    font-size: clamp(24px, 4vw, 36px);
+    line-height: 1.12;
+    letter-spacing: 0;
+  }
+
+  .close-btn {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: #fff;
+    color: var(--ink);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .detail-num {
+    color: var(--muted);
+    font-weight: 800;
+    font-size: 13px;
+  }
+
+  .fact {
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 12px;
+  }
+
+  .fact b {
+    display: block;
+    margin-bottom: 4px;
+    color: #3e6d70;
+    font-size: 13px;
+  }
+
+  .fact p {
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .detail-actions {
+    margin-top: auto;
+  }
+
+  .detail-actions .discover-btn {
+    max-width: 260px;
+  }
+
+  @media (max-width: 760px) {
+    .hero-main {
+      grid-template-columns: 1fr;
+    }
+
+    .progress-box {
+      width: 100%;
+    }
+
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      padding: 8px;
+      gap: 8px;
+    }
+
+    .dialog {
+      grid-template-columns: 1fr;
+    }
+
+    .detail-image img {
+      min-height: auto;
+      aspect-ratio: 4 / 5;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .page {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .topline {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .lang-switch {
+      justify-content: flex-start;
+    }
+
+    .grid {
+      gap: 8px;
+    }
+
+    .card {
+      padding: 7px;
+    }
+
+    .discover-btn {
+      min-height: 40px;
+      padding: 4px 6px;
+      font-size: 13px;
+    }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="hero">
+    <div class="topline">
+      <div class="brand-mark" data-i18n="brand">试用页</div>
+      <nav class="lang-switch" aria-label="Language">
+        <button type="button" data-lang="zh">简</button>
+        <button type="button" data-lang="zhTW">繁</button>
+        <button type="button" data-lang="ja">日</button>
+        <button type="button" data-lang="en">EN</button>
+      </nav>
+    </div>
+    <section class="hero-main" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title" data-i18n="title">冲绳海洋发现岛</h1>
+        <p class="lead" data-i18n="lead">在冲绳的海里真实遇见它们，每发现一种就点亮一张卡。</p>
+      </div>
+      <aside class="progress-box" aria-live="polite">
+        <div class="progress-label">
+          <span data-i18n="progressLabel">收集进度</span>
+          <span class="progress-count" id="progressText">已发现 0 / 6</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="celebration" id="celebration" data-i18n="celebration">全部发现！你完成了冲绳海洋小小观察员任务。</div>
+      </aside>
+    </section>
+  </header>
+
+  <section class="grid" id="cardGrid" aria-label="Species cards"></section>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+  <article class="dialog">
+    <div class="detail-image">
+      <img id="detailImg" alt="">
+    </div>
+    <div class="detail-body">
+      <div class="dialog-head">
+        <div>
+          <div class="detail-num" id="detailNum"></div>
+          <h2 id="detailTitle"></h2>
+        </div>
+        <button type="button" class="close-btn" id="closeModal" aria-label="Close">×</button>
+      </div>
+      <section class="fact">
+        <b data-i18n="introLabel">认识它</b>
+        <p id="detailIntro"></p>
+      </section>
+      <section class="fact">
+        <b data-i18n="whereLabel">在哪里找</b>
+        <p id="detailWhere"></p>
+      </section>
+      <section class="fact">
+        <b data-i18n="missionLabel">小任务</b>
+        <p id="detailMission"></p>
+      </section>
+      <div class="detail-actions">
+        <button type="button" class="discover-btn" id="detailToggle"></button>
+      </div>
+    </div>
+  </article>
+</div>
+
+<script id="cards-data" type="application/json">
+{
+  "meta": { "scene": "snorkel", "sceneName": { "zh": "浮潜", "zhTW": "浮潛", "ja": "スノーケリング", "en": "Snorkeling" }, "version": "2026-07-27" },
+  "species": [
+    {
+      "id": "sp01", "num": "01", "rarity": "◎", "type": "normal", "img": "img/sp01.webp",
+      "name": { "zh": "小丑鱼", "zhTW": "小丑魚", "ja": "クマノミ", "en": "Clownfish" },
+      "intro": {
+        "zh": "住在海葵里的小橘鱼，海葵有毒但它不怕——因为身上有一层\u201c魔法黏液\u201d。",
+        "zhTW": "住在海葵裡的小橘魚，海葵有毒但牠不怕——因為身上有一層「魔法黏液」。",
+        "ja": "イソギンチャクの中にすむオレンジ色の魚。毒があるイソギンチャクも、体の「まほうのねんえき」のおかげでへっちゃら。",
+        "en": "A little orange fish that lives inside a sea anemone. The anemone stings—but not this fish, thanks to its \"magic slime coat.\""
+      },
+      "where": { "zh": "浅礁的海葵丛", "zhTW": "淺礁的海葵叢", "ja": "浅いサンゴ礁のイソギンチャク", "en": "In anemones on shallow reefs" },
+      "mission": { "zh": "数数这个海葵家里住了几条", "zhTW": "數數這個海葵家裡住了幾條", "ja": "この家に何びき住んでいるか数えてみよう", "en": "Count how many live in this one home" }
+    },
+    {
+      "id": "sp02", "num": "02", "rarity": "◎", "type": "normal", "img": "img/sp02.webp",
+      "name": { "zh": "琉璃雀鲷", "zhTW": "琉璃雀鯛", "ja": "ルリスズメダイ", "en": "Sapphire Devil" },
+      "intro": {
+        "zh": "蓝得像通了电，冲绳海里最亮的一抹蓝。",
+        "zhTW": "藍得像通了電，沖繩海裡最亮的一抹藍。",
+        "ja": "電気がついたみたいなまぶしいブルー。沖縄の海でいちばん光る青。",
+        "en": "Blue like it's plugged in—the brightest blue in Okinawa's sea."
+      },
+      "where": { "zh": "珊瑚缝里钻来钻去", "zhTW": "珊瑚縫裡鑽來鑽去", "ja": "サンゴのすきまを出たり入ったり", "en": "Darting in and out of coral cracks" },
+      "mission": { "zh": "阳光下看它变不变色", "zhTW": "陽光下看牠變不變色", "ja": "日ざしの下で色が変わるか見てみよう", "en": "Watch if its color shifts in the sunlight" }
+    },
+    {
+      "id": "sp03", "num": "03", "rarity": "◎", "type": "normal", "img": "img/sp03.webp",
+      "name": { "zh": "银蓝雀鲷", "zhTW": "銀藍雀鯛", "ja": "デバスズメダイ", "en": "Blue-green Chromis" },
+      "intro": {
+        "zh": "几十条一起行动的淡蓝小鱼云，你游过去它们\u201c唰\u201d地散开又合上。",
+        "zhTW": "幾十條一起行動的淡藍小魚雲，你游過去牠們「唰」地散開又合上。",
+        "ja": "何十ぴきもいっしょに動く、うすい青の魚のくも。近づくとサッと広がって、また集まる。",
+        "en": "A pale-blue cloud of dozens of fish—swim close and they burst apart, then flow back together."
+      },
+      "where": { "zh": "枝珊瑚上方成群", "zhTW": "枝珊瑚上方成群", "ja": "枝サンゴの上にむれで", "en": "Schooling above staghorn coral" },
+      "mission": { "zh": "估一估这群有多少条", "zhTW": "估一估這群有多少條", "ja": "この群れはだいたい何びきか当ててみよう", "en": "Guess how many are in the cloud" }
+    },
+    {
+      "id": "sp04", "num": "04", "rarity": "◎", "type": "normal", "img": "img/sp04.webp",
+      "name": { "zh": "三带圆雀鲷", "zhTW": "三帶圓雀鯛", "ja": "ミスジリュウキュウスズメダイ", "en": "Humbug Damselfish" },
+      "intro": {
+        "zh": "穿黑白条纹衫的小家伙，像海里的小斑马。",
+        "zhTW": "穿黑白條紋衫的小傢伙，像海裡的小斑馬。",
+        "ja": "白黒しましまのシャツを着た、海の小さなシマウマ。",
+        "en": "A little fish in a black-and-white striped shirt—the sea's tiny zebra."
+      },
+      "where": { "zh": "枝珊瑚丛，从不游远", "zhTW": "枝珊瑚叢，從不游遠", "ja": "枝サンゴのそばからはなれない", "en": "Always close to staghorn coral" },
+      "mission": { "zh": "数清它有几条黑带", "zhTW": "數清牠有幾條黑帶", "ja": "黒いすじが何本あるか数えよう", "en": "Count its black stripes" }
+    },
+    {
+      "id": "sp05", "num": "05", "rarity": "○", "type": "normal", "img": "img/sp05.webp",
+      "name": { "zh": "蝴蝶鱼", "zhTW": "蝴蝶魚", "ja": "チョウチョウウオ", "en": "Butterflyfish" },
+      "intro": {
+        "zh": "海里的蝴蝶，尾巴附近有个\u201c假眼睛\u201d骗敌人认错头尾。",
+        "zhTW": "海裡的蝴蝶，尾巴附近有個「假眼睛」騙敵人認錯頭尾。",
+        "ja": "海のチョウチョ。しっぽの近くに「にせものの目」があって、敵に頭とおしりをまちがえさせる。",
+        "en": "The butterfly of the sea—it wears a \"fake eye\" near the tail to fool enemies about which end is the head."
+      },
+      "where": { "zh": "礁盘边缘成对出现", "zhTW": "礁盤邊緣成對出現", "ja": "サンゴ礁のふちにペアで", "en": "In pairs along the reef edge" },
+      "mission": { "zh": "找到它的假眼睛", "zhTW": "找到牠的假眼睛", "ja": "にせものの目を見つけよう", "en": "Find the fake eye" }
+    },
+    {
+      "id": "sp06", "num": "06", "rarity": "○", "type": "normal", "img": "img/sp06.webp",
+      "name": { "zh": "角镰鱼", "zhTW": "角鐮魚", "ja": "ツノダシ", "en": "Moorish Idol" },
+      "intro": {
+        "zh": "额头拖一条白丝带，游起来像旗子在飘。",
+        "zhTW": "額頭拖一條白絲帶，游起來像旗子在飄。",
+        "ja": "おでこから白いリボンをなびかせて、旗みたいに泳ぐ。",
+        "en": "Trails a white ribbon from its forehead and swims like a waving flag."
+      },
+      "where": { "zh": "礁区中层水", "zhTW": "礁區中層水", "ja": "サンゴ礁のまん中あたりの水深", "en": "Mid-water over the reef" },
+      "mission": { "zh": "看它是一条还是一对", "zhTW": "看牠是一條還是一對", "ja": "一ぴきかペアか、たしかめよう", "en": "Check—is it alone or in a pair?" }
+    }
+  ]
+}
+</script>
+<script>
+  const STORAGE_KEY = "nice_activity_island_found_v1";
+  const LANG_KEY = "bjt_ui_lang";
+  const LANGS = ["zh", "zhTW", "ja", "en"];
+  const i18n = {
+    zh: {
+      htmlLang: "zh-Hans",
+      brand: "试用页",
+      title: "冲绳海洋发现岛",
+      lead: "在冲绳的海里真实遇见它们，每发现一种就点亮一张卡。",
+      progressLabel: "收集进度",
+      progressText: "已发现 {n} / {total}",
+      foundBadge: "已发现",
+      discover: "发现了！",
+      undo: "取消发现",
+      openCard: "打开卡片",
+      introLabel: "认识它",
+      whereLabel: "在哪里找",
+      missionLabel: "小任务",
+      celebration: "全部发现！你完成了冲绳海洋小小观察员任务。",
+      close: "关闭"
+    },
+    zhTW: {
+      htmlLang: "zh-Hant",
+      brand: "試用頁",
+      title: "沖繩海洋發現島",
+      lead: "在沖繩的海裡真實遇見牠們，每發現一種就點亮一張卡。",
+      progressLabel: "收集進度",
+      progressText: "已發現 {n} / {total}",
+      foundBadge: "已發現",
+      discover: "發現了！",
+      undo: "取消發現",
+      openCard: "打開卡片",
+      introLabel: "認識牠",
+      whereLabel: "在哪裡找",
+      missionLabel: "小任務",
+      celebration: "全部發現！你完成了沖繩海洋小小觀察員任務。",
+      close: "關閉"
+    },
+    ja: {
+      htmlLang: "ja",
+      brand: "おためしページ",
+      title: "沖縄 海の発見島",
+      lead: "沖縄の海で本当に出会える生きものたち。見つけるたびにカードをひとつ光らせよう。",
+      progressLabel: "あつめた数",
+      progressText: "{n} / {total} 見つけた",
+      foundBadge: "発見",
+      discover: "見つけた！",
+      undo: "発見を取り消す",
+      openCard: "カードを開く",
+      introLabel: "どんな生きもの？",
+      whereLabel: "どこで見つかる？",
+      missionLabel: "ミッション",
+      celebration: "ぜんぶ発見！沖縄の海の小さな観察員ミッションをクリアしました。",
+      close: "閉じる"
+    },
+    en: {
+      htmlLang: "en",
+      brand: "Trial page",
+      title: "Okinawa Ocean Discovery Island",
+      lead: "Meet them for real in Okinawa's sea. Light up one card each time you find a species.",
+      progressLabel: "Collection progress",
+      progressText: "Found {n} / {total}",
+      foundBadge: "Found",
+      discover: "Found it!",
+      undo: "Undo found",
+      openCard: "Open card",
+      introLabel: "Meet it",
+      whereLabel: "Where to look",
+      missionLabel: "Mission",
+      celebration: "All found! You completed the little Okinawa ocean observer mission.",
+      close: "Close"
+    }
+  };
+
+  let data = JSON.parse(document.getElementById("cards-data").textContent);
+  let lang = getInitialLang();
+  let found = loadFound();
+  let activeId = null;
+
+  const grid = document.getElementById("cardGrid");
+  const progressText = document.getElementById("progressText");
+  const progressFill = document.getElementById("progressFill");
+  const celebration = document.getElementById("celebration");
+  const modal = document.getElementById("modal");
+  const closeModal = document.getElementById("closeModal");
+  const detailImg = document.getElementById("detailImg");
+  const detailNum = document.getElementById("detailNum");
+  const detailTitle = document.getElementById("detailTitle");
+  const detailIntro = document.getElementById("detailIntro");
+  const detailWhere = document.getElementById("detailWhere");
+  const detailMission = document.getElementById("detailMission");
+  const detailToggle = document.getElementById("detailToggle");
+
+  applyLanguage();
+  renderCards();
+  updateProgress();
+
+  document.querySelectorAll("[data-lang]").forEach((button) => {
+    button.addEventListener("click", () => {
+      lang = button.dataset.lang;
+      localStorage.setItem(LANG_KEY, toStoredLang(lang));
+      applyLanguage();
+      renderCards();
+      updateProgress();
+      if (activeId) {
+        openDetail(activeId);
+      }
+    });
+  });
+
+  closeModal.addEventListener("click", hideModal);
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) hideModal();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("open")) hideModal();
+  });
+  detailToggle.addEventListener("click", () => {
+    if (activeId) toggleFound(activeId);
+  });
+
+  function getInitialLang() {
+    const stored = normalizeLang(localStorage.getItem(LANG_KEY));
+    if (stored) return stored;
+    const params = new URLSearchParams(location.search);
+    const fromUrl = normalizeLang(params.get("lang") || params.get("ui"));
+    if (fromUrl) return fromUrl;
+    const nav = navigator.languages || [navigator.language || ""];
+    for (const tag of nav) {
+      const mapped = normalizeLang(tag);
+      if (mapped) return mapped;
+      if (tag) return "en";
+    }
+    return "en";
+  }
+
+  function normalizeLang(value) {
+    const tag = String(value || "").toLowerCase();
+    if (/^zh-(tw|hant|hk|mo)(-|$)/.test(tag)) return "zhTW";
+    if (/^zh-tw$/.test(tag)) return "zhTW";
+    if (/^zh($|-cn|-hans|-sg)/.test(tag)) return "zh";
+    if (/^ja($|-)/.test(tag)) return "ja";
+    if (/^en($|-)/.test(tag)) return "en";
+    if (LANGS.includes(value)) return value;
+    return "";
+  }
+
+  function toStoredLang(value) {
+    return value === "zhTW" ? "zh-tw" : value;
+  }
+
+  function loadFound() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      return new Set(Array.isArray(saved) ? saved : []);
+    } catch {
+      return new Set();
+    }
+  }
+
+  function saveFound() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...found]));
+  }
+
+  function t(key) {
+    return i18n[lang][key];
+  }
+
+  function applyLanguage() {
+    document.documentElement.lang = t("htmlLang");
+    document.title = t("title");
+    document.querySelector('meta[name="description"]').setAttribute("content", t("lead"));
+    document.querySelectorAll("[data-i18n]").forEach((node) => {
+      node.textContent = t(node.dataset.i18n);
+    });
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
+    });
+    closeModal.setAttribute("aria-label", t("close"));
+  }
+
+  function renderCards() {
+    if (!data) return;
+    grid.innerHTML = "";
+    data.species.forEach((species) => {
+      const isFound = found.has(species.id);
+      const card = document.createElement("article");
+      card.className = `card${isFound ? " found" : ""}`;
+      card.dataset.id = species.id;
+      card.innerHTML = `
+        <span class="rarity" aria-label="rarity">${species.rarity}</span>
+        <button type="button" class="image-button" aria-label="${t("openCard")}: ${escapeHtml(species.name[lang])}">
+          <img src="${species.img}" alt="${escapeHtml(species.name[lang])}" loading="lazy">
+          <span class="silhouette" aria-hidden="true">${species.num}</span>
+          <span class="badge">${t("foundBadge")}</span>
+        </button>
+        <div class="card-title">
+          <h2>${escapeHtml(species.name[lang])}</h2>
+          <p>${species.num}</p>
+        </div>
+        <button type="button" class="discover-btn">${isFound ? t("undo") : t("discover")}</button>
+      `;
+      card.querySelector(".image-button").addEventListener("click", () => openDetail(species.id));
+      card.querySelector(".discover-btn").addEventListener("click", () => toggleFound(species.id));
+      grid.appendChild(card);
+    });
+  }
+
+  function toggleFound(id) {
+    if (found.has(id)) {
+      found.delete(id);
+    } else {
+      found.add(id);
+    }
+    saveFound();
+    renderCards();
+    updateProgress();
+    if (activeId) {
+      openDetail(activeId);
+    }
+  }
+
+  function updateProgress() {
+    if (!data) return;
+    const total = data.species.length;
+    const count = data.species.filter((species) => found.has(species.id)).length;
+    progressText.textContent = t("progressText").replace("{n}", count).replace("{total}", total);
+    progressFill.style.width = `${(count / total) * 100}%`;
+    celebration.classList.toggle("show", count === total);
+  }
+
+  function openDetail(id) {
+    const species = data.species.find((item) => item.id === id);
+    if (!species) return;
+    activeId = id;
+    detailImg.src = species.img;
+    detailImg.alt = species.name[lang];
+    detailNum.textContent = `${species.num} ${species.rarity}`;
+    detailTitle.textContent = species.name[lang];
+    detailIntro.textContent = species.intro[lang];
+    detailWhere.textContent = species.where[lang];
+    detailMission.textContent = species.mission[lang];
+    detailToggle.textContent = found.has(id) ? t("undo") : t("discover");
+    modal.classList.add("open");
+    closeModal.focus();
+  }
+
+  function hideModal() {
+    modal.classList.remove("open");
+    activeId = null;
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+</script>
+</body>
+</html>

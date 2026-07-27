@@ -1,0 +1,77 @@
+{
+  "meta": { "scene": "snorkel", "sceneName": { "zh": "浮潜", "zhTW": "浮潛", "ja": "スノーケリング", "en": "Snorkeling" }, "version": "2026-07-27" },
+  "species": [
+    {
+      "id": "sp01", "num": "01", "rarity": "◎", "type": "normal", "img": "img/sp01.webp",
+      "name": { "zh": "小丑鱼", "zhTW": "小丑魚", "ja": "クマノミ", "en": "Clownfish" },
+      "intro": {
+        "zh": "住在海葵里的小橘鱼，海葵有毒但它不怕——因为身上有一层\u201c魔法黏液\u201d。",
+        "zhTW": "住在海葵裡的小橘魚，海葵有毒但牠不怕——因為身上有一層「魔法黏液」。",
+        "ja": "イソギンチャクの中にすむオレンジ色の魚。毒があるイソギンチャクも、体の「まほうのねんえき」のおかげでへっちゃら。",
+        "en": "A little orange fish that lives inside a sea anemone. The anemone stings—but not this fish, thanks to its \"magic slime coat.\""
+      },
+      "where": { "zh": "浅礁的海葵丛", "zhTW": "淺礁的海葵叢", "ja": "浅いサンゴ礁のイソギンチャク", "en": "In anemones on shallow reefs" },
+      "mission": { "zh": "数数这个海葵家里住了几条", "zhTW": "數數這個海葵家裡住了幾條", "ja": "この家に何びき住んでいるか数えてみよう", "en": "Count how many live in this one home" }
+    },
+    {
+      "id": "sp02", "num": "02", "rarity": "◎", "type": "normal", "img": "img/sp02.webp",
+      "name": { "zh": "琉璃雀鲷", "zhTW": "琉璃雀鯛", "ja": "ルリスズメダイ", "en": "Sapphire Devil" },
+      "intro": {
+        "zh": "蓝得像通了电，冲绳海里最亮的一抹蓝。",
+        "zhTW": "藍得像通了電，沖繩海裡最亮的一抹藍。",
+        "ja": "電気がついたみたいなまぶしいブルー。沖縄の海でいちばん光る青。",
+        "en": "Blue like it's plugged in—the brightest blue in Okinawa's sea."
+      },
+      "where": { "zh": "珊瑚缝里钻来钻去", "zhTW": "珊瑚縫裡鑽來鑽去", "ja": "サンゴのすきまを出たり入ったり", "en": "Darting in and out of coral cracks" },
+      "mission": { "zh": "阳光下看它变不变色", "zhTW": "陽光下看牠變不變色", "ja": "日ざしの下で色が変わるか見てみよう", "en": "Watch if its color shifts in the sunlight" }
+    },
+    {
+      "id": "sp03", "num": "03", "rarity": "◎", "type": "normal", "img": "img/sp03.webp",
+      "name": { "zh": "银蓝雀鲷", "zhTW": "銀藍雀鯛", "ja": "デバスズメダイ", "en": "Blue-green Chromis" },
+      "intro": {
+        "zh": "几十条一起行动的淡蓝小鱼云，你游过去它们\u201c唰\u201d地散开又合上。",
+        "zhTW": "幾十條一起行動的淡藍小魚雲，你游過去牠們「唰」地散開又合上。",
+        "ja": "何十ぴきもいっしょに動く、うすい青の魚のくも。近づくとサッと広がって、また集まる。",
+        "en": "A pale-blue cloud of dozens of fish—swim close and they burst apart, then flow back together."
+      },
+      "where": { "zh": "枝珊瑚上方成群", "zhTW": "枝珊瑚上方成群", "ja": "枝サンゴの上にむれで", "en": "Schooling above staghorn coral" },
+      "mission": { "zh": "估一估这群有多少条", "zhTW": "估一估這群有多少條", "ja": "この群れはだいたい何びきか当ててみよう", "en": "Guess how many are in the cloud" }
+    },
+    {
+      "id": "sp04", "num": "04", "rarity": "◎", "type": "normal", "img": "img/sp04.webp",
+      "name": { "zh": "三带圆雀鲷", "zhTW": "三帶圓雀鯛", "ja": "ミスジリュウキュウスズメダイ", "en": "Humbug Damselfish" },
+      "intro": {
+        "zh": "穿黑白条纹衫的小家伙，像海里的小斑马。",
+        "zhTW": "穿黑白條紋衫的小傢伙，像海裡的小斑馬。",
+        "ja": "白黒しましまのシャツを着た、海の小さなシマウマ。",
+        "en": "A little fish in a black-and-white striped shirt—the sea's tiny zebra."
+      },
+      "where": { "zh": "枝珊瑚丛，从不游远", "zhTW": "枝珊瑚叢，從不游遠", "ja": "枝サンゴのそばからはなれない", "en": "Always close to staghorn coral" },
+      "mission": { "zh": "数清它有几条黑带", "zhTW": "數清牠有幾條黑帶", "ja": "黒いすじが何本あるか数えよう", "en": "Count its black stripes" }
+    },
+    {
+      "id": "sp05", "num": "05", "rarity": "○", "type": "normal", "img": "img/sp05.webp",
+      "name": { "zh": "蝴蝶鱼", "zhTW": "蝴蝶魚", "ja": "チョウチョウウオ", "en": "Butterflyfish" },
+      "intro": {
+        "zh": "海里的蝴蝶，尾巴附近有个\u201c假眼睛\u201d骗敌人认错头尾。",
+        "zhTW": "海裡的蝴蝶，尾巴附近有個「假眼睛」騙敵人認錯頭尾。",
+        "ja": "海のチョウチョ。しっぽの近くに「にせものの目」があって、敵に頭とおしりをまちがえさせる。",
+        "en": "The butterfly of the sea—it wears a \"fake eye\" near the tail to fool enemies about which end is the head."
+      },
+      "where": { "zh": "礁盘边缘成对出现", "zhTW": "礁盤邊緣成對出現", "ja": "サンゴ礁のふちにペアで", "en": "In pairs along the reef edge" },
+      "mission": { "zh": "找到它的假眼睛", "zhTW": "找到牠的假眼睛", "ja": "にせものの目を見つけよう", "en": "Find the fake eye" }
+    },
+    {
+      "id": "sp06", "num": "06", "rarity": "○", "type": "normal", "img": "img/sp06.webp",
+      "name": { "zh": "角镰鱼", "zhTW": "角鐮魚", "ja": "ツノダシ", "en": "Moorish Idol" },
+      "intro": {
+        "zh": "额头拖一条白丝带，游起来像旗子在飘。",
+        "zhTW": "額頭拖一條白絲帶，游起來像旗子在飄。",
+        "ja": "おでこから白いリボンをなびかせて、旗みたいに泳ぐ。",
+        "en": "Trails a white ribbon from its forehead and swims like a waving flag."
+      },
+      "where": { "zh": "礁区中层水", "zhTW": "礁區中層水", "ja": "サンゴ礁のまん中あたりの水深", "en": "Mid-water over the reef" },
+      "mission": { "zh": "看它是一条还是一对", "zhTW": "看牠是一條還是一對", "ja": "一ぴきかペアか、たしかめよう", "en": "Check—is it alone or in a pair?" }
+    }
+  ]
+}
