@@ -10,3 +10,4 @@ T0706-24 WAN 宪法 v1.5 已同步到 CLAUDE.md；新增域名/API入口切换�
 
 T0707-14 WAN 宪法 v1.6 已同步到 CLAUDE.md，FREEZE.md 冻结区同步到仓库根目录；新增冻结区、任务三分类、CC 交付六栏规则。
 ACT-0821-01 activity 新增英文 /en/when-to-book/ GEO 页，补 Article/HowTo/FAQPage JSON-LD、sitemap、llms 与英文首页入口。
+BRAND-0821-01 activity 新增 Okinawa Private Tour brand 单源目录，包含 logo PNG 资产、tokens.css、README 与 demo 页，不改现有页面入口。

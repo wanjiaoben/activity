@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <title>Okinawa Private Tour Brand Kit</title>
+  <meta name="description" content="Logo, tokens, and UI usage reference for Okinawa Private Tour.">
+  <link rel="icon" href="/brand/logo/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/brand/logo/apple-touch-icon-180.png">
+  <link rel="stylesheet" href="/brand/tokens.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .page {
+      background:
+        linear-gradient(180deg, rgba(108, 204, 228, 0.18), transparent 360px),
+        var(--opt-mist);
+      color: var(--opt-ink);
+      font-family: var(--opt-font-body);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      margin: 0 auto;
+      max-width: 1120px;
+      padding: 28px 18px 56px;
+    }
+
+    .topbar {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .brand-logo {
+      display: block;
+      height: auto;
+      max-width: 260px;
+      width: min(62vw, 260px);
+    }
+
+    .avatar-chip {
+      align-items: center;
+      background: var(--opt-paper);
+      border: 1px solid var(--opt-border);
+      border-radius: 999px;
+      display: inline-flex;
+      gap: 8px;
+      padding: 7px 12px 7px 8px;
+    }
+
+    .avatar-chip img {
+      height: 34px;
+      width: 34px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--opt-blue-900);
+      font-family: var(--opt-font-heading);
+      letter-spacing: 0;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 0.98;
+      max-width: 780px;
+    }
+
+    h2 {
+      font-size: clamp(1.35rem, 2.4vw, 2rem);
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    p {
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .intro {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      margin-bottom: 24px;
+    }
+
+    .lead {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      margin-top: 16px;
+      max-width: 700px;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .dark-panel {
+      background: var(--opt-blue-900);
+      border-radius: var(--opt-radius);
+      color: var(--opt-paper);
+      display: grid;
+      min-height: 210px;
+      place-items: center;
+      padding: 28px;
+    }
+
+    .dark-panel img {
+      max-width: 260px;
+      width: 100%;
+    }
+
+    .section {
+      margin-top: 24px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .swatches {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .swatch {
+      min-height: 132px;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .swatch-color {
+      min-height: 72px;
+    }
+
+    .swatch-copy {
+      padding: 12px;
+    }
+
+    .swatch-copy strong,
+    .summary-row strong {
+      display: block;
+      font-family: var(--opt-font-heading);
+    }
+
+    .swatch-copy code {
+      color: #52616B;
+      font-size: 0.86rem;
+    }
+
+    .components {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .sample-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 210px;
+      padding: 18px;
+    }
+
+    .sample-card .icon {
+      align-items: center;
+      background: rgba(108, 204, 228, 0.22);
+      border-radius: var(--opt-radius);
+      color: var(--opt-blue-900);
+      display: inline-flex;
+      font-family: var(--opt-font-heading);
+      font-size: 1.35rem;
+      font-weight: 900;
+      height: 48px;
+      justify-content: center;
+      width: 48px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 14px;
+    }
+
+    label {
+      color: #52616B;
+      display: grid;
+      font-size: 0.86rem;
+      gap: 6px;
+    }
+
+    .summary {
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-head {
+      align-items: center;
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .summary-row {
+      align-items: center;
+      border-top: 1px solid var(--opt-border);
+      display: flex;
+      justify-content: space-between;
+      padding-top: 12px;
+    }
+
+    .accent-line {
+      background: linear-gradient(90deg, var(--opt-blue-900), var(--opt-teal-500), var(--opt-sun-500));
+      border-radius: 999px;
+      height: 5px;
+      margin-top: 18px;
+      max-width: 360px;
+    }
+
+    @media (max-width: 760px) {
+      .topbar,
+      .intro,
+      .components {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        display: grid;
+      }
+
+      .swatches,
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 430px) {
+      .wrap {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .panel,
+      .sample-card {
+        padding: 16px;
+      }
+
+      .swatches,
+      .cards,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row .opt-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="wrap">
+      <header class="topbar">
+        <img class="brand-logo" src="/brand/logo/okinawa-private-tour-horizontal.png" alt="Okinawa Private Tour">
+        <span class="avatar-chip">
+          <img src="/brand/logo/okinawa-private-tour-avatar.png" alt="">
+          Brand single source
+        </span>
+      </header>
+
+      <section class="intro">
+        <div>
+          <h1>Okinawa Private Tour brand kit</h1>
+          <p class="lead">A quiet, coastal UI system for tour pages, booking steps, and customer support surfaces.</p>
+          <div class="button-row">
+            <a class="opt-button opt-button-primary" href="/brand/logo/okinawa-private-tour-horizontal.png">Download logo</a>
+            <a class="opt-button opt-button-secondary" href="/brand/tokens.css">Open tokens</a>
+          </div>
+          <div class="accent-line" aria-hidden="true"></div>
+        </div>
+        <div class="dark-panel">
+          <img src="/brand/logo/okinawa-private-tour-white.png" alt="Okinawa Private Tour white logo">
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Color Tokens</h2>
+        <div class="grid swatches">
+          <article class="opt-card swatch">
+            <div class="swatch-color" style="background:#0060B4"></div>
+            <div class="swatch-copy"><strong>Blue 900</strong><code>#0060B4</code></div>
+          </article>
+          <article class="opt-card swatch">
+            <div class="swatch-color" style="background:#009CD8"></div>
+            <div class="swatch-copy"><strong>Blue 500</strong><code>#009CD8</code></div>
+          </article>
+          <article class="opt-card swatch">
+            <div class="swatch-color" style="background:#00B4C0"></div>
+            <div class="swatch-copy"><strong>Teal 500</strong><code>#00B4C0</code></div>
+          </article>
+          <article class="opt-card swatch">
+            <div class="swatch-color" style="background:#3CC090"></div>
+            <div class="swatch-copy"><strong>Mint 500</strong><code>#3CC090</code></div>
+          </article>
+          <article class="opt-card swatch">
+            <div class="swatch-color" style="background:#6CCCE4"></div>
+            <div class="swatch-copy"><strong>Sky 200</strong><code>#6CCCE4</code></div>
+          </article>
+          <article class="opt-card swatch">
+            <div class="swatch-color" style="background:#FCB400"></div>
+            <div class="swatch-copy"><strong>Sun 500</strong><code>#FCB400</code></div>
+          </article>
+          <article class="opt-card swatch">
+            <div class="swatch-color" style="background:#1F2A37"></div>
+            <div class="swatch-copy"><strong>Ink</strong><code>#1F2A37</code></div>
+          </article>
+          <article class="opt-card swatch">
+            <div class="swatch-color" style="background:#F2F8FA"></div>
+            <div class="swatch-copy"><strong>Mist</strong><code>#F2F8FA</code></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section grid components">
+        <article class="opt-card panel">
+          <h2>Buttons & Form</h2>
+          <p>Primary actions use blue 900. Secondary actions use a blue 500 outline. Destructive actions stay neutral gray.</p>
+          <div class="button-row">
+            <button class="opt-button opt-button-primary" type="button">Confirm booking</button>
+            <button class="opt-button opt-button-secondary" type="button">Ask a question</button>
+            <button class="opt-button opt-button-danger" type="button">Cancel request</button>
+          </div>
+          <div class="form-grid">
+            <label>Guest name
+              <input class="opt-field" value="Mina Tanaka">
+            </label>
+            <label>Preferred date
+              <input class="opt-field" type="date" value="2026-09-18">
+            </label>
+            <label>Trip type
+              <select class="opt-field">
+                <option>Private fishing charter</option>
+                <option>Snorkel boat</option>
+                <option>Sunset cruise</option>
+              </select>
+            </label>
+            <label>Group size
+              <input class="opt-field" type="number" value="4">
+            </label>
+          </div>
+        </article>
+
+        <article class="opt-card panel summary">
+          <div class="summary-head">
+            <h2>Order Summary</h2>
+            <span class="opt-tag opt-tag-success">NO CHARGE TODAY</span>
+          </div>
+          <p>Private fishing charter, Naha pickup support, English booking support by Okinawa Private Tour.</p>
+          <div class="summary-row"><span>Date</span><strong>18 Sep 2026</strong></div>
+          <div class="summary-row"><span>Guests</span><strong>4 adults</strong></div>
+          <div class="summary-row"><span>Contact</span><strong>WhatsApp + email</strong></div>
+          <a class="opt-button opt-button-primary" href="mailto:info@nice.okinawa">Send request</a>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2>Cards</h2>
+        <div class="grid cards">
+          <article class="opt-card sample-card">
+            <span class="icon">1</span>
+            <h3>Fishing Okinawa</h3>
+            <p>by Okinawa Private Tour</p>
+            <span class="opt-tag">Captain confirmed</span>
+          </article>
+          <article class="opt-card sample-card">
+            <span class="icon">2</span>
+            <h3>Snorkel Okinawa</h3>
+            <p>by Okinawa Private Tour</p>
+            <span class="opt-tag">Family friendly</span>
+          </article>
+          <article class="opt-card sample-card">
+            <span class="icon">3</span>
+            <h3>Sunset Charter</h3>
+            <p>Private support, clear timing, no heavy decoration.</p>
+            <span class="opt-tag opt-tag-success">Card hold only</span>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
